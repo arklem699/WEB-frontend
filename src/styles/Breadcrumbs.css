@@ -1,0 +1,28 @@
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 22px;
+}
+
+.crumb {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.crumb a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.chevron-icon {
+    margin: 0 5px;
+    color: #333;
+}
+
+.home-icon {
+    margin-right: 5px;
+    color: #333;
+}
