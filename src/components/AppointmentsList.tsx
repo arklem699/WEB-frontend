@@ -35,7 +35,7 @@ const AppointmentsList = () => {
     const createMock = () => {
 
         setIsMock(true);
-        setAppointments(AppointmentsMock);
+        setAppointments(AppointmentsMock); // Выводить не все моки
 
     }
 

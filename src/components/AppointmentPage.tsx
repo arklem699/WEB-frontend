@@ -1,6 +1,6 @@
 import "../styles/AppointmentPage.css";
-import {Dispatch, useEffect, useState, FC} from "react";
-import {Link, Navigate, useParams} from "react-router-dom";
+import { Dispatch, useEffect, useState, FC } from "react";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { AppointmentsMock } from "../Mock";
 import { Appointment } from "./AppointmentCard";
 import Breadcrumbs from "./Breadcrumbs";
@@ -18,6 +18,7 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
 
             if (!response.ok)
             {
+                setIsMock(true);
                 createMock();
                 return;
             }
