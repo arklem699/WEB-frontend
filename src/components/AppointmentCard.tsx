@@ -25,7 +25,7 @@ const AppointmentCard: FC<{ appointment: Appointment, isMock: boolean }> = ({ ap
     const [imageUrl, setImageUrl] = useState<string>(''); 
 
     const getImageUrl = async (id: number): Promise<string> => {
-        const response = await fetch(`http://127.0.0.1:8000/appointment/${id}/image`, { method: 'GET' });
+        const response = await fetch(`http://127.0.0.1:8000/appointment/${id}/image/get/`, { method: 'GET' });
     
         if (!response.ok) {
             console.error(`Ошибка HTTP: ${ response.status }`);
@@ -49,7 +49,7 @@ const AppointmentCard: FC<{ appointment: Appointment, isMock: boolean }> = ({ ap
         fetchImageUrl();
     }, [appointment.id]);
 
-    const strImageUrl = `data:image/png;base64,${ imageUrl }`;
+    const strImageUrl = `data:image/jpeg;base64,${ imageUrl }`;
 
     return (
         <Card className="card">
