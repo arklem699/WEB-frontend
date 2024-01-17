@@ -1,4 +1,5 @@
 import '../styles/InputField.css';
+import React from 'react';
 import { FC, useState, Dispatch } from 'react';
 
 const InputField: FC<{ setQuery: Dispatch<string> }> = ({ setQuery }) => {

@@ -1,9 +1,11 @@
 import "../styles/AppointmentPage.css";
+import React from 'react';
 import { Dispatch, useEffect, useState, FC } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { AppointmentsMock } from "../Mock";
 import { Appointment } from "./AppointmentCard";
 import Breadcrumbs from "./Breadcrumbs";
+import NavBar from "./NavBar";
 
 const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSelectedAppointment: Dispatch<Appointment | undefined> }> = ({ selectedAppointment, setSelectedAppointment }) => {
 
@@ -54,6 +56,7 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
 
     return (
         <div>
+            <NavBar />
             <Navigate to={`/appointment/${ selectedAppointment?.id }`} />
             <Link to='/' className="buttonBack">
                 Назад

@@ -1,0 +1,45 @@
+/* Стили для контейнера ShoppingCart */
+.shopping-cart-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Стили для каждого элемента в списке */
+  .appointment-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .appointment-item p {
+    margin: 5px 0;
+  }
+  
+  /* Стили для кнопки удаления */
+  .delete-button {
+    background-color: #ff6347;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .delete-button:hover {
+    background-color: #d1472d;
+  }
+  
+  /* Стили для кнопки "Сформировать" */
+  .generate-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .generate-button:hover {
+    background-color: #45a049;
+  }

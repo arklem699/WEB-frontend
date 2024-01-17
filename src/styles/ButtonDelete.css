@@ -1,0 +1,24 @@
+.cardButton button {
+    /* Общие стили для кнопки */
+    display: inline-block;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: Tahoma;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 100;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #fff;
+  }
+  
+  .cardButton button.add {
+    /* Стили для кнопки "Добавить" */
+    background: #025f8a;
+  }
+  
+  .cardButton button.delete {
+    /* Стили для кнопки "Удалить" */
+    background-color: #b51f05;
+  }

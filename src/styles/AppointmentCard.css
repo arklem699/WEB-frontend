@@ -1,7 +1,9 @@
 .card {
     border: 10px solid #025f8a;
     margin: 30px;
-    padding: 10px;
+    padding: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
     text-align: center;
 }
 
@@ -14,24 +16,23 @@
     height: 150px;
     width: 150px;
     object-fit: cover;
+    align-self: center;
 }
 
 .cardButton {
-    display: inline-block;
-    background: #025f8a;
-    padding: 12px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: none;
-    border-radius: 20px;
-    font-family: Tahoma;
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 100;
-    cursor: pointer;
+    display: flex;
+    gap: 10px; /* Расстояние между элементами */
+    align-items: center; /* Выравнивание элементов по центру по вертикали */
 }
-
+  
+/* Стили для ссылки "Подробнее" */
 .cardButton a {
-    color: white;        
-    text-decoration: none;
-  }
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    color: #007bff; /* Цвет текста ссылки */
+    font-weight: bold; /* Жирный шрифт */
+    transition: color 0.3s; /* Плавный переход цвета текста */
+}
+  
+.cardButton a:hover {
+    color: #0056b3; /* Цвет текста ссылки при наведении */
+}

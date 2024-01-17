@@ -1,7 +1,9 @@
 import "../styles/AppointmentCard.css";
+import React from 'react';
 import { FC, useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import ButtonDelete from "./ButtonDelete";
 import mockImage from "/src/assets/mock.png";
 
 export interface Appointment {
@@ -13,7 +15,7 @@ export interface Appointment {
 }
 
 const AppointmentCard: FC<{ appointment: Appointment, isMock: boolean }> = ({ appointment, isMock }) => {
-
+    
     const new_time = new Date(`1970-01-01T${appointment.time}Z`);
     new_time.setHours(new_time.getHours() - 3);
 
@@ -67,8 +69,9 @@ const AppointmentCard: FC<{ appointment: Appointment, isMock: boolean }> = ({ ap
                     </Card.Text>
                 </div>
                 <div className="cardButton">
-                    <Link to={`/appointment/${ appointment.id }`}>
-                        Записаться
+                    <ButtonDelete appointment={appointment} />
+                    <Link to={`/appointment/${ appointment.id }`} >
+                        Подробнее
                     </Link>
                 </div>
             </Card.Body>
