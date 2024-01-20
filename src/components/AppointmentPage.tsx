@@ -1,11 +1,10 @@
 import "../styles/AppointmentPage.css";
-import React from 'react';
+import React from "react";
 import { Dispatch, useEffect, useState, FC } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { AppointmentsMock } from "../Mock";
 import { Appointment } from "./AppointmentCard";
 import Breadcrumbs from "./Breadcrumbs";
-import NavBar from "./NavBar";
 
 const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSelectedAppointment: Dispatch<Appointment | undefined> }> = ({ selectedAppointment, setSelectedAppointment }) => {
 
@@ -56,15 +55,23 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
 
     return (
         <div>
-            <NavBar />
             <Navigate to={`/appointment/${ selectedAppointment?.id }`} />
             <Link to='/' className="buttonBack">
                 Назад
             </Link>
             <Breadcrumbs selectedAppointment={ selectedAppointment } />
-            <h1>
-                Вы записаны на { formattedDate }
-            </h1>
+            <div className="information">
+                <b>Информация о записи</b>
+            </div>
+            <div className="order-container">
+                <div className="order-text">
+                    <span className="label">Врач:</span> { selectedAppointment?.doctor }
+                    <br />
+                    <span className="label">Дата:</span> { formattedDate }
+                    <br />
+                    <span className="label">Время:</span> { selectedAppointment?.time }
+                </div>
+            </div>
         </div>    
     )
 }
