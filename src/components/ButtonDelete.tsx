@@ -18,8 +18,6 @@ const ButtonDelete: FC<{ appointment: Appointment }> = ({ appointment }) => {
         setIsActiveAdd(!appointmentIds.includes(appointment.id));
     }, [data, appointment.id]);
 
-    console.log(data);
-
     const handleAddClick = async () => {
         try {
             // Отправка запроса на бэкенд при нажатии

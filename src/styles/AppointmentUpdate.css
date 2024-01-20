@@ -1,0 +1,36 @@
+.edit {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Стили для полей ввода и меток */
+  .edit label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .edit input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Стили для кнопки сохранения */
+  .edit button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edit button:hover {
+    background-color: #45a049;
+  }

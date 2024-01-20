@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useState } from "react";
 import { logout, updateUser } from "../slices/auth";
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from "react-router-dom";
@@ -8,7 +8,13 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
 
+    const [moderator, setModerator] = useState(false);
+
     const { user: currentUser } = useSelector((state) => state.auth);
+
+    useEffect(() => {
+        setModerator(currentUser?.is_staff || currentUser?.is_admin);
+    }, [currentUser]);
 
     const dispatch = useDispatch();
 
@@ -42,9 +48,15 @@ const NavBar = () => {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={"/shopcart"} className="nav-link">
-                        <FaShoppingCart />
-                    </Link>
+                    {moderator ? (
+                        <Link to={"/applications"} className="nav-link">
+                            Заявки
+                        </Link> 
+                    ) : (
+                        <Link to={"/shopcart"} className="nav-link">
+                            <FaShoppingCart />
+                        </Link>
+                    )}
                 </li>
                 <li className="nav-item">
                     <a href="/login" className="nav-link" onClick={logOut}>

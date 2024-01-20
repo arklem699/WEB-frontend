@@ -1,0 +1,25 @@
+.accept, .reject {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .reject {
+    background-color: #f44336;
+  }
+  
+  .accept:hover  {
+    background-color: #45a049;
+  }
+
+  .reject:hover {
+    background-color: #dc1406;
+  }

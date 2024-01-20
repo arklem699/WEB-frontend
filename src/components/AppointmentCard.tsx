@@ -1,8 +1,10 @@
 import "../styles/AppointmentCard.css";
 import React from 'react';
 import { FC, useState, useEffect } from 'react';
+import { useSelector } from "react-redux";
 import { Card } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import { RootState } from "../store";
 import ButtonDelete from "./ButtonDelete";
 import mockImage from "/src/assets/mock.png";
 
@@ -15,6 +17,13 @@ export interface Appointment {
 }
 
 const AppointmentCard: FC<{ appointment: Appointment, isMock: boolean }> = ({ appointment, isMock }) => {
+
+    const [moderator, setModerator] = useState(false);
+    const { user: currentUser } = useSelector((state: RootState) => state.auth);
+
+    useEffect(() => {
+        setModerator(currentUser.is_staff || currentUser.is_admin);
+    }, [currentUser]);
     
     const new_time = new Date(`1970-01-01T${appointment.time}Z`);
     new_time.setHours(new_time.getHours() - 3);
@@ -54,28 +63,32 @@ const AppointmentCard: FC<{ appointment: Appointment, isMock: boolean }> = ({ ap
     const strImageUrl = `data:image/jpeg;base64,${ imageUrl }`;
 
     return (
-        <Card className="card">
-            <Card.Img className="cardImage" variant="top" src={ isMock ? mockImage : strImageUrl } />
-            <Card.Body>
-                <div className="cardText">
-                    <Card.Text>
-                        <b>
-                            Врач: { appointment.doctor }
-                            <br />
-                            { formattedDate }
-                            <br />
-                            { formattedTime }
-                        </b>
-                    </Card.Text>
-                </div>
-                <div className="cardButton">
-                    <ButtonDelete appointment={appointment} />
-                    <Link to={`/appointment/${ appointment.id }`} >
-                        Подробнее
-                    </Link>
-                </div>
-            </Card.Body>
-        </Card>
+        <div>
+            {!moderator && (
+                <Card className="card">
+                    <Card.Img className="cardImage" variant="top" src={ isMock ? mockImage : strImageUrl } />
+                    <Card.Body>
+                        <div className="cardText">
+                            <Card.Text>
+                                <b>
+                                    Врач: { appointment.doctor }
+                                    <br />
+                                    { formattedDate }
+                                    <br />
+                                    { formattedTime }
+                                </b>
+                            </Card.Text>
+                        </div>
+                        <div className="cardButton">
+                            <ButtonDelete appointment={appointment} />
+                            <Link to={`/appointment/${ appointment.id }`} >
+                                Подробнее
+                            </Link>
+                        </div>
+                    </Card.Body>
+                </Card>
+            )}
+        </div>
     );
 };
 
