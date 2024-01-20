@@ -53,7 +53,7 @@ const AppointmentsList = () => {
 
     useEffect(() => {
         searchAppointments();
-    }, [query, appointments])
+    }, [query])
 
     const handleDeleteClick = async (id: number) => {
         try {
