@@ -1,9 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/NavBar.css';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useCallback } from "react";
+import { useData } from "../slices/dataSlice";
 import { logout, updateUser } from "../slices/auth";
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from "react-router-dom";
+import { GetData } from "../getData";
 
 
 const NavBar = () => {
@@ -27,12 +30,16 @@ const NavBar = () => {
 
     }, [dispatch]);
 
+    GetData();
+
+    const data = useData();
+
     return (
         <div>
             <nav className="navbar navbar-expand navbar-dark bg-dark">
-            <Link to={"/"} className="navbar-brand">
-                Главная
-            </Link>
+                <Link to={"/"} className="navbar-brand">
+                    Главная
+                </Link>
 
             {currentUser ? (
                 <div className="navbar-nav ml-auto">
@@ -42,9 +49,16 @@ const NavBar = () => {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={"/shopcart"} className="nav-link">
-                        <FaShoppingCart />
-                    </Link>
+                    {moderator ? (
+                        <Link to={"/applications"} className="nav-link">
+                            Заявки
+                        </Link> 
+                    ) : (
+                        <Link to={"/shopcart"} className="nav-link">
+                            <FaShoppingCart />
+                            {data.length > 0 && <span className="cart-badge">{data.length}</span>}
+                        </Link>
+                    )}
                 </li>
                 <li className="nav-item">
                     <a href="/login" className="nav-link" onClick={logOut}>
@@ -60,13 +74,13 @@ const NavBar = () => {
                     </Link>
                 </li>
 
-                <li className="nav-item">
-                    <Link to={"/register"} className="nav-link">
-                        Регистрация
-                    </Link>
-                </li>
-                </div>
-            )}
+                    <li className="nav-item">
+                        <Link to={"/register"} className="nav-link">
+                            Регистрация
+                        </Link>
+                    </li>
+                    </div>
+                )}
             </nav>
         </div>
     )
