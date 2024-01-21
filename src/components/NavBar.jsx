@@ -49,16 +49,13 @@ const NavBar = () => {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    {moderator ? (
-                        <Link to={"/applications"} className="nav-link">
-                            Заявки
-                        </Link> 
-                    ) : (
+                    <div className="cart-icon">
                         <Link to={"/shopcart"} className="nav-link">
-                            <FaShoppingCart />
+                            <FaShoppingCart className="cart" />
                             {data.length > 0 && <span className="cart-badge">{data.length}</span>}
                         </Link>
-                    )}
+                    </div>
+
                 </li>
                 <li className="nav-item">
                     <a href="/login" className="nav-link" onClick={logOut}>
