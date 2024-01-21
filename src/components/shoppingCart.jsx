@@ -7,7 +7,7 @@ import NavBar from './NavBar';
 import Breadcrumbs from './Breadcrumbs';
 
 
-export default function ShoppingCart(){
+export default function ShoppingCart() {
 
 // Функция для получения значения конкретной куки по ее имени
     function getCookie(name) {
