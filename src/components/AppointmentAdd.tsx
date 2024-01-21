@@ -2,6 +2,7 @@ import '../styles/AppointmentAdd.css';
 import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
+import Breadcrumbs from './Breadcrumbs';
 
 const AppointmentAdd: FC = () => {
 
@@ -45,6 +46,7 @@ const AppointmentAdd: FC = () => {
     return (
         <div>
             <NavBar />
+            <Breadcrumbs />
             <Link to='/' className="buttonBack">
                 Назад
             </Link>

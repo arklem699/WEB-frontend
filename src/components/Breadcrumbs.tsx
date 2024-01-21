@@ -4,31 +4,53 @@ import { FC } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
-import { Appointment } from "./AppointmentCard";
 
-const Breadcrumbs: FC<{selectedAppointment: Appointment | undefined}> = ({selectedAppointment}) => {
+const Breadcrumbs: FC = () => {
 
     const location = useLocation();
 
     let currentLink = '';
 
-    const formattedDate = selectedAppointment?.date
-        ? new Date(selectedAppointment.date)
-            .toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })
-            .replace(/\//g, '.')
-        : '';
+    const topics: { [key: string]: string } = {
+        "post": "Создать",
+        "update": "Редактировать",
+        "applications": "Заявки",
+        "shopcart": "Корзина",
+        "login": "Вход",
+        "register": "Регистрация"
+    };
 
     const crumbs = location.pathname.split('/').filter(crumb => crumb !== '').map(crumb => {
 
         currentLink += `/${crumb}`;
 
-        if (currentLink.match(new RegExp('appointment/(\d*)'))) {
+        const matchResult = currentLink.match(/appointment\/(\d+)$/);
+
+        if (matchResult) {
+
+            const appointmentNumber = matchResult[1];
+
             return (
                 <div className={"crumb"} key={crumb}>
-                    <Link to={currentLink}>
-                        { formattedDate }
-                    </Link>
                     <FaChevronRight className={"chevron-icon"}/>
+                    <Link to={currentLink}>
+                        Услуга №{appointmentNumber}
+                    </Link>
+                </div>
+            )
+        }
+
+        if (Object.keys(topics).find(x => x == crumb))
+        {
+            return (
+                <div className={"crumb"} key={crumb}>
+
+                    <FaChevronRight className={"chevron-icon"}/>
+
+                    <Link to={currentLink}>
+                        { topics[crumb] }
+                    </Link>
+
                 </div>
             )
         }
@@ -40,7 +62,6 @@ const Breadcrumbs: FC<{selectedAppointment: Appointment | undefined}> = ({select
                 <Link to={"/"}>
                     <FaHome className="home-icon" />
                 </Link>
-                <FaChevronRight className="chevron-icon" />
             </div>
             {crumbs}
         </div>

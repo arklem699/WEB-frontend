@@ -25,7 +25,7 @@ const App = () => {
                         <Route path="/register" element={ <Register /> } />
                         <Route path='/appointment/:id' element={ <AppointmentPage selectedAppointment={ selectedAppointment } setSelectedAppointment={ setSelectedAppointment } /> } />
                         <Route path='/appointments/post' element={ <AppointmentAdd/> } />
-                        <Route path='/appointment/:id/update' element={ <AppointmentUpdate /> } />
+                        <Route path='/appointment/update/:id' element={ <AppointmentUpdate /> } />
                         <Route path='/applications' element={ <ApplicationsList/> } />
                         <Route path='/shopcart' element={ <ShoppingCart /> } />
                     </Routes>

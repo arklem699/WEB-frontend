@@ -4,6 +4,7 @@ import {deleteAppointment, delAppointAction, sendApplication, useData, useSum} f
 import {useDispatch} from "react-redux";
 import {GetData} from "../getData";
 import NavBar from './NavBar';
+import Breadcrumbs from './Breadcrumbs';
 
 
 export default function ShoppingCart(){
@@ -32,6 +33,7 @@ export default function ShoppingCart(){
     return (
         <div>
             <NavBar />
+            <Breadcrumbs />
             <div className="shopping-cart-container">
                 {data.map((appointment) => (
                     <div key={appointment.id} className="appointment-item">

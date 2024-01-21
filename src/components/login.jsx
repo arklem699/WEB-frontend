@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { login } from "../slices/auth";
 import { clearMessage } from "../slices/message";
 import NavBar from "./NavBar";
+import Breadcrumbs from "./Breadcrumbs";
 
 const Login = () => {
     let navigate = useNavigate();
@@ -71,6 +72,7 @@ const Login = () => {
     return (
         <div>
             <NavBar />
+            <Breadcrumbs />
             <div className="col-md-12 login-form">
                 <div className="card-auth card-container">
                     <img
