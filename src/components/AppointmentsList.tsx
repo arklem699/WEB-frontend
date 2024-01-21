@@ -5,6 +5,7 @@ import AppointmentCard from "./AppointmentCard";
 import InputField from "./InputField";
 import { AppointmentsMock } from '../Mock';
 import Breadcrumbs from './Breadcrumbs';
+import NavBar from './NavBar';
 
 const AppointmentsList = () => {
 
@@ -53,6 +54,7 @@ const AppointmentsList = () => {
 
     return (
         <div>
+            <NavBar />
             <InputField setQuery={setQuery} />
             <Breadcrumbs selectedAppointment={ undefined } />
             <div className="container">
