@@ -1,4 +1,5 @@
 import "../styles/AppointmentPage.css";
+import React from "react";
 import { Dispatch, useEffect, useState, FC } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { AppointmentsMock } from "../Mock";
