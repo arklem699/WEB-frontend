@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { register } from "../slices/auth";
 import { clearMessage } from "../slices/message";
 import NavBar from "./NavBar";
+import Breadcrumbs from "./Breadcrumbs";
 
 const Register = () => {
     const [successful, setSuccessful] = useState(false);
@@ -72,6 +73,7 @@ const Register = () => {
     return (
         <div>
             <NavBar />
+            <Breadcrumbs />
             <div className="col-md-12 signup-form">
                 <div className="card-auth card-container">
                     <img
