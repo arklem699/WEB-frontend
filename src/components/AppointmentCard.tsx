@@ -54,7 +54,7 @@ const AppointmentCard: FC<{ appointment: Appointment, isMock: boolean }> = ({ ap
     const strImageUrl = `data:image/jpeg;base64,${ imageUrl }`;
 
     return (
-        <Card className="card">
+        <Card className="cardAppoint">
             <Card.Img className="cardImage" variant="top" src={ isMock ? mockImage : strImageUrl } />
             <Card.Body>
                 <div className="cardText">

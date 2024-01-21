@@ -73,7 +73,7 @@ const Register = () => {
         <div>
             <NavBar />
             <div className="col-md-12 signup-form">
-                <div className="card card-container">
+                <div className="card-auth card-container">
                     <img
                         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
                         alt="profile-img"
@@ -90,7 +90,7 @@ const Register = () => {
                             {!successful && (
                                 <div>
                                     <div className="form-group">
-                                        <label htmlFor="username">Username</label>
+                                        <label htmlFor="username">Никнейм</label>
                                         <Field
                                             name="username"
                                             type="text"
@@ -109,7 +109,7 @@ const Register = () => {
                                     </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="email">Email</label>
+                                    <label htmlFor="email">Почта</label>
                                     <Field
                                         name="email"
                                         type="email"
@@ -126,7 +126,7 @@ const Register = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="password">Password</label>
+                                    <label htmlFor="password">Пароль</label>
                                     <Field
                                         name="password"
                                         type="password"
@@ -146,7 +146,7 @@ const Register = () => {
 
                                 <div className="form-group">
                                     <button type="submit" className="btn btn-primary btn-block">
-                                        Sign Up
+                                        Регистрация
                                     </button>
                                 </div>
                                 </div>

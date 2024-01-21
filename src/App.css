@@ -25,11 +25,13 @@ label {
     margin: auto;
   }
   
-  .card {
+  .card-auth {
     background-color: #f7f7f7;
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
     margin-top: 50px;
+    max-width: 400px; /* Замените на ваше значение */
+    width: 100%; /* Чтобы адаптироваться к размеру родительского контейнера */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;

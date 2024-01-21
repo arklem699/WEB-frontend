@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useCallback } from "react";
 import { logout, updateUser } from "../slices/auth";
