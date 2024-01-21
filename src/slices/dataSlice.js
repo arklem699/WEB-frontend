@@ -7,7 +7,6 @@ const dataSlice = createSlice({
     name: "data",
     initialState: {
         Data: [], 
-        SumShoppingCart: 0,
     },
     reducers: {
         setData(state, {payload}) {  // изменяем состояние на полученные данные
@@ -20,6 +19,11 @@ const dataSlice = createSlice({
             const { id } = payload;
             // Удаляем услугу из массива
             state.Data = state.Data.filter(appointment => appointment.id !== id);
+        },
+        sendAppoint(state, {payload}) {
+            const { id } = payload;
+            state.Data.push({ id }); // добавляем новый объект с указанным id
+            console.log(id);
         }
     }
 })
@@ -33,7 +37,8 @@ export const useSum = () =>
 export const {
     setData: setDataAction,
     sendAppl: sendApplAction,
-    delAppoint: delAppointAction
+    delAppoint: delAppointAction,
+    sendAppoint: sendAppointAction
 } = dataSlice.actions
 
 export const deleteAppointment = (id) => async (dispatch) => {
@@ -48,6 +53,13 @@ export const sendApplication = (id_appl) => async (dispatch) => {
     // Отправка запроса на формирование на бэкенд
     await axios.put(`http://127.0.0.1:8000/application/${id_appl}/user/put/`, null, { withCredentials: true });
     dispatch(sendApplAction({ id_appl }));
+}
+
+export const sendAppointment = (id) => async (dispatch) => {
+  
+    // Отправка запроса на формирование на бэкенд
+    await axios.post(`http://127.0.0.1:8000/appointment/${id}/`, null, { withCredentials: true });
+    dispatch(sendAppointAction({ id }));
 }
 
 

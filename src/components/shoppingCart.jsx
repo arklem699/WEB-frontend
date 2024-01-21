@@ -1,6 +1,6 @@
 import '../styles/shoppingCart.css';
 import React from 'react'
-import {deleteAppointment, delAppointAction, sendApplication, useData, useSum} from "../slices/dataSlice";
+import {deleteAppointment, sendApplication, useData, useSum} from "../slices/dataSlice";
 import {useDispatch} from "react-redux";
 import {GetData} from "../getData";
 import NavBar from './NavBar';

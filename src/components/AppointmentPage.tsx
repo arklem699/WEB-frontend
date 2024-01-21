@@ -61,10 +61,19 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
             <Link to='/' className="buttonBack">
                 Назад
             </Link>
-            <Breadcrumbs selectedAppointment={ selectedAppointment } />
-            <h1>
-                Вы записаны на { formattedDate }
-            </h1>
+            <Breadcrumbs />
+            <div className="information">
+                <b>Информация о записи</b>
+            </div>
+            <div className="order-container">
+                <div className="order-text">
+                    <span className="label">Врач:</span> { selectedAppointment?.doctor }
+                    <br />
+                    <span className="label">Дата:</span> { formattedDate }
+                    <br />
+                    <span className="label">Время:</span> { selectedAppointment?.time }
+                </div>
+            </div>
         </div>    
     )
 }
