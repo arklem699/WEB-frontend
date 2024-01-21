@@ -25,7 +25,7 @@ label {
     margin: auto;
   }
   
-  .card {
+  .card-auth {
     background-color: #f7f7f7;
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
@@ -36,6 +36,8 @@ label {
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    max-width: 400px; /* Замените на ваше значение */
+    width: 100%; /* Чтобы адаптироваться к размеру родительского контейнера */
   }
   
   .profile-img-card {
