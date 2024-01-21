@@ -1,5 +1,4 @@
 import "../styles/AppointmentsList.css";
-import React from "react";
 import { useEffect, useState } from "react";
 import { Appointment } from "./AppointmentCard";
 import AppointmentCard from "./AppointmentCard";
@@ -57,7 +56,7 @@ const AppointmentsList = () => {
         <div>
             <NavBar />
             <InputField setQuery={setQuery} />
-            <Breadcrumbs selectedAppointment={ undefined } />
+            <Breadcrumbs />
             <div className="container">
                 { cards }
             </div>

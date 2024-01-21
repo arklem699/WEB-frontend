@@ -1,5 +1,4 @@
 import '../styles/Breadcrumbs.css';
-import React from 'react';
 import { FC } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa6";
@@ -10,15 +9,6 @@ const Breadcrumbs: FC = () => {
     const location = useLocation();
 
     let currentLink = '';
-
-    const topics: { [key: string]: string } = {
-        "post": "Создать",
-        "update": "Редактировать",
-        "applications": "Заявки",
-        "shopcart": "Корзина",
-        "login": "Вход",
-        "register": "Регистрация"
-    };
 
     const crumbs = location.pathname.split('/').filter(crumb => crumb !== '').map(crumb => {
 
@@ -36,21 +26,6 @@ const Breadcrumbs: FC = () => {
                     <Link to={currentLink}>
                         Услуга №{appointmentNumber}
                     </Link>
-                </div>
-            )
-        }
-
-        if (Object.keys(topics).find(x => x == crumb))
-        {
-            return (
-                <div className={"crumb"} key={crumb}>
-
-                    <FaChevronRight className={"chevron-icon"}/>
-
-                    <Link to={currentLink}>
-                        { topics[crumb] }
-                    </Link>
-
                 </div>
             )
         }
