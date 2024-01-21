@@ -57,7 +57,7 @@ const AppointmentsList = () => {
         <div>
             <NavBar />
             <InputField setQuery={setQuery} />
-            <Breadcrumbs selectedAppointment={ undefined } />
+            <Breadcrumbs />
             <div className="container">
                 { cards }
             </div>

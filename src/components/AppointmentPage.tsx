@@ -59,7 +59,7 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
             <Link to='/' className="buttonBack">
                 Назад
             </Link>
-            <Breadcrumbs selectedAppointment={ selectedAppointment } />
+            <Breadcrumbs />
             <div className="information">
                 <b>Информация о записи</b>
             </div>
