@@ -2,6 +2,7 @@ import '../styles/ApplicationsList.css';
 import React from "react";
 import { useState, useEffect } from "react";
 import NavBar from './NavBar';
+import Breadcrumbs from './Breadcrumbs';
 
 
 export interface Application {
@@ -89,6 +90,7 @@ const ApplicationsList = () => {
     return (
         <div>
             <NavBar/>
+            <Breadcrumbs />
             <table className="table">
             <thead>
                 <tr>

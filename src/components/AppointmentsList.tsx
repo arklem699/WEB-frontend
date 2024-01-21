@@ -83,7 +83,7 @@ const AppointmentsList = () => {
         <div>
             <NavBar />
             <InputField setQuery={setQuery} />
-            <Breadcrumbs selectedAppointment={ undefined } />
+            <Breadcrumbs />
             {moderator && (
                 <div>
                     <button className="buttoncreate">
@@ -110,7 +110,7 @@ const AppointmentsList = () => {
                             <td>{appointment.time}</td>
                             <td>
                                 <button className="editbutton">
-                                    <Link to={`/appointment/${ appointment.id }/update`} >
+                                    <Link to={`/appointment/update/${ appointment.id }`} >
                                         Редактировать
                                     </Link>
                                 </button>

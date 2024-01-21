@@ -5,6 +5,7 @@ import { Appointment } from "./AppointmentCard";
 import Breadcrumbs from "./Breadcrumbs";
 import NavBar from "./NavBar";
 
+
 const AppointmentUpdate: FC = () => {
     const { id } = useParams<{ id: string }>();
 
@@ -72,7 +73,7 @@ const AppointmentUpdate: FC = () => {
             <Link to='/' className="buttonBack">
                 Назад
             </Link>
-            <Breadcrumbs selectedAppointment={ editableAppointment } />
+            <Breadcrumbs />
             <div className="edit">
                 <div>
                     <label>Врач:</label>
