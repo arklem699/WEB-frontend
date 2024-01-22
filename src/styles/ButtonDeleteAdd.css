@@ -1,4 +1,4 @@
-.cardButton button {
+.cardButton button, a.add {
     /* Общие стили для кнопки */
     display: inline-block;
     padding: 12px;
@@ -13,7 +13,7 @@
     color: #fff;
   }
   
-  .cardButton button.add {
+  .cardButton button.add, a.add {
     /* Стили для кнопки "Добавить" */
     background: #025f8a;
   }
@@ -21,4 +21,8 @@
   .cardButton button.delete {
     /* Стили для кнопки "Удалить" */
     background-color: #b51f05;
+  }
+
+  .cardButton a.add {
+    color: #fff;
   }

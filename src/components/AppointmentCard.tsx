@@ -3,7 +3,7 @@ import React from 'react';
 import { FC, useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import ButtonDelete from "./ButtonDeleteAdd";
+import ButtonDeleteAdd from "./ButtonDeleteAdd";
 import mockImage from "/src/assets/mock.png";
 
 export interface Appointment {
@@ -69,7 +69,7 @@ const AppointmentCard: FC<{ appointment: Appointment, isMock: boolean }> = ({ ap
                     </Card.Text>
                 </div>
                 <div className="cardButton">
-                    <ButtonDelete appointment={appointment} />
+                    <ButtonDeleteAdd appointment={appointment} />
                     <Link to={`/appointment/${ appointment.id }`} >
                         Подробнее
                     </Link>
