@@ -54,30 +54,28 @@ const AppointmentCard: FC<{ appointment: Appointment, isMock: boolean }> = ({ ap
     const strImageUrl = `data:image/jpeg;base64,${ imageUrl }`;
 
     return (
-        <div>
-            <Card className="cardAppoint">
-                <Card.Img className="cardImage" variant="top" src={ isMock ? mockImage : strImageUrl } />
-                <Card.Body>
-                    <div className="cardText">
-                        <Card.Text>
-                            <b>
-                                Врач: { appointment.doctor }
-                                <br />
-                                { formattedDate }
-                                <br />
-                                { formattedTime }
-                            </b>
-                        </Card.Text>
-                    </div>
-                    <div className="cardButton">
-                        <ButtonDeleteAdd appointment={appointment} />
-                        <Link to={`/appointment/${ appointment.id }`} >
-                            Подробнее
-                        </Link>
-                    </div>
-                </Card.Body>
-            </Card>
-        </div>
+        <Card className="cardAppoint">
+            <Card.Img className="cardImage" variant="top" src={ isMock ? mockImage : strImageUrl } />
+            <Card.Body>
+                <div className="cardText">
+                    <Card.Text>
+                        <b>
+                            Врач: { appointment.doctor }
+                            <br />
+                            { formattedDate }
+                            <br />
+                            { formattedTime }
+                        </b>
+                    </Card.Text>
+                </div>
+                <div className="cardButton">
+                    <ButtonDeleteAdd appointment={appointment} />
+                    <Link to={`/appointment/${ appointment.id }`} >
+                        Подробнее
+                    </Link>
+                </div>
+            </Card.Body>
+        </Card>
     );
 };
 
