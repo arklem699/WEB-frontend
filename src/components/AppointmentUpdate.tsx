@@ -52,12 +52,13 @@ const AppointmentUpdate: FC = () => {
                 body: JSON.stringify(editableAppointment)
             });
 
+            window.location.reload();
+
             if (!response.ok) {
                 console.error(`Ошибка HTTP: ${response.status}`);
                 return;
             }
 
-        // Обработать успешное сохранение, например, перенаправление или вывод сообщения
         } catch (error) {
           console.error('Произошла ошибка:', error);
         }

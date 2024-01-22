@@ -21,25 +21,32 @@ const AppointmentAdd: FC = () => {
     };
 
     const handleSave = async () => {
-      // Отправить запрос на сервер для сохранения изменений
         try {
-            const response = await fetch(`http://127.0.0.1:8000/appointments/post/`, {
-                method: "POST",
+            const formData = new FormData();
+            formData.append('doctor', addAppointment.doctor);
+            formData.append('date', addAppointment.date);
+            formData.append('time', addAppointment.time);
+    
+            const imageInput = document.getElementById('imageInput') as HTMLInputElement;
+            if (imageInput.files && imageInput.files[0]) {
+                formData.append('image', imageInput.files[0]);
+            }
+    
+            const response = await fetch('http://127.0.0.1:8000/appointments/post/', {
+                method: 'POST',
                 credentials: 'include',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(addAppointment)
+                body: formData,
             });
 
+            window.location.reload();
+    
             if (!response.ok) {
                 console.error(`Ошибка HTTP: ${response.status}`);
                 return;
             }
-
-        // Обработать успешное сохранение, например, перенаправление или вывод сообщения
+    
         } catch (error) {
-          console.error('Произошла ошибка:', error);
+            console.error('Произошла ошибка:', error);
         }
     };
 
@@ -70,6 +77,14 @@ const AppointmentAdd: FC = () => {
                     <input
                         type="text"
                         onChange={(e) => handleFieldChange("time", e.target.value)}
+                    />
+                </div>
+                <div>
+                    <label>Фото:</label>
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/*"
                     />
                 </div>
                 <button onClick={handleSave}>Сохранить</button>
