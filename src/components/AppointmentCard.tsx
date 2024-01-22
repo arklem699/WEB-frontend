@@ -3,7 +3,7 @@ import React from 'react';
 import { FC, useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import ButtonDelete from "./ButtonDelete";
+import ButtonDelete from "./ButtonDeleteAdd";
 import mockImage from "/src/assets/mock.png";
 
 export interface Appointment {

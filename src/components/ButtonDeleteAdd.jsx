@@ -1,4 +1,4 @@
-import '../styles/ButtonDelete.css';
+import '../styles/ButtonDeleteAdd.css';
 import React, { FC, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { GetData } from '../getData';
