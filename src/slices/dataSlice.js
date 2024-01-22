@@ -23,7 +23,6 @@ const dataSlice = createSlice({
         sendAppoint(state, {payload}) {
             const { id } = payload;
             state.Data.push({ id }); // добавляем новый объект с указанным id
-            console.log(id);
         }
     }
 })

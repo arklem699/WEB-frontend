@@ -7,7 +7,7 @@ export function GetData() {
     const dispatch = useDispatch()
     async function fetchData() {
         try {
-            const response = await axios.get('http://127.0.0.1:8000/applications/', { withCredentials: true });
+            const response = await axios.get('http://127.0.0.1:8000/applications/user/', { withCredentials: true });
             dispatch(setDataAction(response.data));
         } catch (error) {
             console.error('Error fetching data:', error);
