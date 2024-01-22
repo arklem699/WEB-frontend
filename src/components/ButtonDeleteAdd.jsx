@@ -1,11 +1,11 @@
-import '../styles/ButtonDelete.css';
+import '../styles/ButtonDeleteAdd.css';
 import React, { FC, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { GetData } from '../getData';
 import { useData, deleteAppointment, sendAppointment } from '../slices/dataSlice';
 
 
-const ButtonDelete = ({ appointment }) => {
+const ButtonDeleteAdd = ({ appointment }) => {
 
     const dispatch = useDispatch();
 
@@ -14,8 +14,6 @@ const ButtonDelete = ({ appointment }) => {
     GetData();
 
     const data = useData();
-
-    console.log(data);
 
     useEffect(() => {
         const appointmentIds = data.map(item => item?.id);
@@ -49,4 +47,4 @@ const ButtonDelete = ({ appointment }) => {
     );
 };
 
-export default ButtonDelete;
+export default ButtonDeleteAdd;

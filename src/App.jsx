@@ -7,6 +7,7 @@ import AppointmentPage from './components/AppointmentPage';
 import AppointmentAdd from './components/AppointmentAdd';
 import AppointmentUpdate from './components/AppointmentUpdate';
 import ApplicationsList from './components/ApplicationsList';
+import AppointmentsListModerator from './components/AppointmentsListModerator';
 import Login from "./components/login";
 import Register from "./components/register";
 import ShoppingCart from './components/shoppingCart';
@@ -24,8 +25,9 @@ const App = () => {
                         <Route path="/login" element={ <Login /> } />
                         <Route path="/register" element={ <Register /> } />
                         <Route path='/appointment/:id' element={ <AppointmentPage selectedAppointment={ selectedAppointment } setSelectedAppointment={ setSelectedAppointment } /> } />
+                        <Route path='/appointments' element={ <AppointmentsListModerator/> } />
                         <Route path='/appointments/post' element={ <AppointmentAdd/> } />
-                        <Route path='/appointment/update/:id' element={ <AppointmentUpdate /> } />
+                        <Route path='/appointments/update/:id' element={ <AppointmentUpdate /> } />
                         <Route path='/applications' element={ <ApplicationsList/> } />
                         <Route path='/shopcart' element={ <ShoppingCart /> } />
                     </Routes>
