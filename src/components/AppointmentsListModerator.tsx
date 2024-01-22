@@ -54,12 +54,14 @@ const AppointmentsListModerator = () => {
                 credentials: 'include'
             });
 
+            window.location.reload();
+
             if (!response.ok) {
                 console.error(`Ошибка HTTP: ${response.status}`);
             }
         } catch (error) {
               console.error('Произошла ошибка:', error);
-          }
+        }
     };
 
     return (
