@@ -4,3 +4,9 @@
     align-items: flex-start;
     margin: 20px;
   }
+
+  .react-datepicker__input-container input {
+    width: 100%;
+    padding: 5px;
+    font-size: 0.9rem;
+  }
