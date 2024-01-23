@@ -1,36 +1,40 @@
 import '../styles/InputField.css';
+import 'react-datepicker/dist/react-datepicker.css';
 import React from 'react';
 import { FC, useState, Dispatch } from 'react';
+import DatePicker from 'react-datepicker';
+
 
 const InputField: FC<{ setQuery: Dispatch<string> }> = ({ setQuery }) => {
 
-    const [value, setValue] = useState<string>("");
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
-    const handleChange = (value: string) => {
-        setValue(value);
-    };
+    const handleChange = (date: Date | null) => {
+        
+        setSelectedDate(date);
 
-    const handleClick = () => {
-        setQuery(value);
-    };
-
-    const handleKeyDown = (event: React.KeyboardEvent) => {
-        if (event.key === 'Enter') {
-            handleClick();
+        if (date) {
+            const formattedDate = date.toLocaleDateString('ru-RU');
+            setQuery(formattedDate);
         }
+
+        else {
+            setQuery('');
+        }
+
     };
 
     return (
         <div className="inputField">
-            <h2>Поиск по дате:</h2>
-            <br />
-            <input className="input"
-                value={ value }
-                placeholder='ДД.ММ.ГГГГ'
-                onChange={ (event) => handleChange(event.target.value) }
-                onKeyDown={ handleKeyDown }
+            <DatePicker
+                selected={selectedDate}
+                onChange={handleChange}
+                dateFormat="dd.MM.yyyy"
+                placeholderText="Выберите дату..."
+                isClearable
+                showYearDropdown
+                scrollableYearDropdown
             />
-            <button type="submit" onClick={ handleClick } className="button">Поиск</button>
         </div>
     );
 };
