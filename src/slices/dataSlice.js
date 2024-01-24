@@ -30,9 +30,6 @@ const dataSlice = createSlice({
 export const useData = () =>
     useSelector((state) => state.ourData.Data)
 
-export const useSum = () =>
-    useSelector((state) => state.ourData.SumShoppingCart)
-
 export const {
     setData: setDataAction,
     sendAppl: sendApplAction,

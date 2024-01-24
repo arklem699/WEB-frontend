@@ -3,11 +3,12 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
   }
   
   /* Стили для каждого элемента в списке */
   .appointment-item {
-    border: 1px solid #ccc;
+    border: 1px solid #0d0000;
     margin-bottom: 10px;
     padding: 10px;
   }
@@ -42,4 +43,18 @@
   
   .generate-button:hover {
     background-color: #45a049;
+  }
+
+  .my-applications-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.3em;
+    position: absolute; /* Позиционирование */
+    top: 70px; /* Верхний край */
+    right: 20px; /* Отступ справа */
+  }
+  
+  .my-applications-link:hover {
+    text-decoration: none;
   }
