@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -110,47 +111,54 @@ const Register = () => {
                                         />
                                     </div>
 
-                                <div className="form-group">
-                                    <label htmlFor="email">Почта</label>
-                                    <Field
-                                        name="email"
-                                        type="email"
-                                        className={
-                                            "form-control" +
-                                            (errors.email && touched.email ? " is-invalid" : "")
-                                        }
-                                    />
-                                    <ErrorMessage
-                                        name="email"
-                                        component="div"
-                                        className="invalid-feedback"
-                                    />
-                                </div>
+                                    <div className="form-group">
+                                        <label htmlFor="email">Почта</label>
+                                        <Field
+                                            name="email"
+                                            type="email"
+                                            className={
+                                                "form-control" +
+                                                (errors.email && touched.email ? " is-invalid" : "")
+                                            }
+                                        />
+                                        <ErrorMessage
+                                            name="email"
+                                            component="div"
+                                            className="invalid-feedback"
+                                        />
+                                    </div>
 
-                                <div className="form-group">
-                                    <label htmlFor="password">Пароль</label>
-                                    <Field
-                                        name="password"
-                                        type="password"
-                                        className={
-                                            "form-control" +
-                                            (errors.password && touched.password
-                                            ? " is-invalid"
-                                            : "")
-                                        }
-                                    />
-                                    <ErrorMessage
-                                        name="password"
-                                        component="div"
-                                        className="invalid-feedback"
-                                    />
-                                </div>
+                                    <div className="form-group">
+                                        <label htmlFor="password">Пароль</label>
+                                        <Field
+                                            name="password"
+                                            type="password"
+                                            className={
+                                                "form-control" +
+                                                (errors.password && touched.password
+                                                ? " is-invalid"
+                                                : "")
+                                            }
+                                        />
+                                        <ErrorMessage
+                                            name="password"
+                                            component="div"
+                                            className="invalid-feedback"
+                                        />
+                                    </div>
 
-                                <div className="form-group">
-                                    <button type="submit" className="btn btn-primary btn-block">
-                                        Регистрация
-                                    </button>
-                                </div>
+                                    <div className="form-group">
+                                        <button type="submit" className="btn btn-primary btn-block">
+                                            Регистрация
+                                        </button>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <p>
+                                            Уже есть аккаунт?{" "}
+                                            <Link to="/login">Войти</Link>
+                                        </p>
+                                    </div>
                                 </div>
                             )}
                         </Form>
