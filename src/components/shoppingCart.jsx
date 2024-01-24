@@ -1,6 +1,7 @@
 import '../styles/shoppingCart.css';
-import React from 'react'
-import {deleteAppointment, sendApplication, useData, useSum} from "../slices/dataSlice";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import {deleteAppointment, sendApplication, useData} from "../slices/dataSlice";
 import {useDispatch} from "react-redux";
 import {GetData} from "../getData";
 import NavBar from './NavBar';
@@ -27,13 +28,15 @@ export default function ShoppingCart() {
     const sessionId = getCookie('session_id');
     const dispatch = useDispatch()
     GetData()  // вызов хука
-    const sum = useSum()
     const data = useData()
 
     return (
         <div>
             <NavBar />
             <Breadcrumbs />
+            <Link to='/shopcart/my-applications' className="my-applications-link">
+                Мои заявки
+            </Link>
             <div className="shopping-cart-container">
                 {data.map((appointment) => (
                     <div key={appointment.id} className="appointment-item">

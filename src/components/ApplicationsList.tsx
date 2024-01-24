@@ -9,6 +9,7 @@ export interface Application {
     id: number;
     date_creating: string;
     date_formation: string;
+    date_completion: string;
     status: string;
     username: string;
 }
