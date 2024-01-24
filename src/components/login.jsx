@@ -1,6 +1,7 @@
+import '../styles/login.css';
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { login } from "../slices/auth";
@@ -133,6 +134,13 @@ const Login = () => {
                                     )}
                                     <span>Войти</span>
                                 </button>
+                            </div>
+
+                            <div className="form-group">
+                                <p>
+                                    Ещё нет аккаунта?{" "}
+                                    <Link to="/register">Создать</Link>
+                                </p>
                             </div>
                         </Form>
                     )}
