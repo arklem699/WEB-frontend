@@ -16,6 +16,7 @@ const Breadcrumbs: FC = () => {
         "update": "Редактировать",
         "applications": "Заявки",
         "shopcart": "Корзина",
+        "my-applications": "Мои заявки",
         "login": "Вход",
         "register": "Регистрация"
     };

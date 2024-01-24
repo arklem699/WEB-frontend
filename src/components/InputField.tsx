@@ -3,7 +3,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import React from 'react';
 import { FC, useState, Dispatch } from 'react';
 import DatePicker from 'react-datepicker';
+import { registerLocale, setDefaultLocale } from 'react-datepicker';
+import ru from 'date-fns/locale/ru';
 
+
+registerLocale('ru', ru);
+setDefaultLocale('ru');
 
 const InputField: FC<{ setQuery: Dispatch<string> }> = ({ setQuery }) => {
 
