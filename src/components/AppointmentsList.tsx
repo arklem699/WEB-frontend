@@ -1,4 +1,5 @@
 import "../styles/AppointmentsList.css";
+import React from "react";
 import { useEffect, useState } from "react";
 import { Appointment } from "./AppointmentCard";
 import AppointmentCard from "./AppointmentCard";

@@ -1,4 +1,5 @@
 import './App.css'
+import React from 'react';
 import { FC, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AppointmentsList from './components/AppointmentsList'
@@ -11,7 +12,7 @@ const App: FC = () => {
 
     return (
         <div>
-            <BrowserRouter>
+            <BrowserRouter basename='/WEB-frontend'>
                 <Routes>
                     <Route path='/' element={ <AppointmentsList /> } />
                     <Route path='/appointment/:id' element={ <AppointmentPage selectedAppointment={ selectedAppointment } setSelectedAppointment={ setSelectedAppointment } /> } />
