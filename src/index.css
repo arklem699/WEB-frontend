@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url("src/assets/back.jpg");
+    background-image: url("back.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;

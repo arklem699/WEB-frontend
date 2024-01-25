@@ -1,6 +1,6 @@
 import "../styles/AppointmentPage.css";
 import React from 'react';
-import { Dispatch, useEffect, useState, FC } from "react";
+import { Dispatch, useEffect, FC } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { AppointmentsMock } from "../Mock";
 import { Appointment } from "./AppointmentCard";
@@ -11,8 +11,6 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
 
     const { id } = useParams<{id: string}>();
 
-    const [isMock, setIsMock] = useState<boolean>(false);
-
     const fetchData = async () => {
 
         try {
@@ -20,7 +18,6 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
 
             if (!response.ok)
             {
-                setIsMock(true);
                 createMock();
                 return;
             }
@@ -28,7 +25,6 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
             const appointment: Appointment = await response.json()
 
             setSelectedAppointment(appointment);
-            setIsMock(false);
 
         } catch {
             createMock();
@@ -40,7 +36,6 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
 
         if (id !== undefined) {
             setSelectedAppointment(AppointmentsMock.find((appointment:Appointment) => appointment?.id == parseInt(id))!);
-            setIsMock(true);
         }
     }
 
