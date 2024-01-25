@@ -5,15 +5,15 @@
     margin-left: 5px;
     font-size: 16px;
     text-decoration: none;
-    background-color: #025f8a;
+    background-color: #045cba;
     color: #fff;
-    border: 1px solid #007bff;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
 .buttonBack:hover {
-    background-color: #0056b3;
+    background-color: #025f8a;
     color: #fff;
+    text-decoration: none;
 }  
 
 .order-container {

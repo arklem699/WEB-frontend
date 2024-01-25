@@ -1,12 +1,17 @@
 .inputField {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 20px;
-  }
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
 
-  .react-datepicker__input-container input {
-    width: 100%;
+.inputField input {
     padding: 5px;
-    font-size: 0.9rem;
-  }
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgb(137,206,239);
+    margin-left: 10px;
+}
+
+.inputField label {
+    font-size: larger;
+}
