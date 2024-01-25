@@ -2,24 +2,19 @@ import '../styles/InputField.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import React from 'react';
 import { FC, useState, Dispatch } from 'react';
-import DatePicker from 'react-datepicker';
-import { registerLocale, setDefaultLocale } from 'react-datepicker';
-import ru from 'date-fns/locale/ru';
 
-
-registerLocale('ru', ru);
-setDefaultLocale('ru');
 
 const InputField: FC<{ setQuery: Dispatch<string> }> = ({ setQuery }) => {
 
-    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+    const [selectedDate, setSelectedDate] = useState('');
 
-    const handleChange = (date: Date | null) => {
+    const handleChange = (date: string) => {
         
         setSelectedDate(date);
 
         if (date) {
-            const formattedDate = date.toLocaleDateString('ru-RU');
+            const [year, month, day] = date.split("-");
+            const formattedDate = `${day}.${month}.${year}`;
             setQuery(formattedDate);
         }
 
@@ -31,15 +26,8 @@ const InputField: FC<{ setQuery: Dispatch<string> }> = ({ setQuery }) => {
 
     return (
         <div className="inputField">
-            <DatePicker
-                selected={selectedDate}
-                onChange={handleChange}
-                dateFormat="dd.MM.yyyy"
-                placeholderText="Выберите дату..."
-                isClearable
-                showYearDropdown
-                scrollableYearDropdown
-            />
+            <label><b>Поиск по дате: </b></label>
+            <input type="date" value={selectedDate} onChange={(e) => handleChange(e.target.value)} />
         </div>
     );
 };
