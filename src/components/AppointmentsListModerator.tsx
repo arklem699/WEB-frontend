@@ -15,8 +15,6 @@ const AppointmentsListModerator = () => {
 
     const [query, setQuery] = useState<string>("");
 
-    const [isMock, setIsMock] = useState<boolean>(false);
-
     const searchAppointments = async () => {
         try {
             const response = await fetch(`http://127.0.0.1:8000/search/?query=${query}`, { method: "GET" });
@@ -28,7 +26,6 @@ const AppointmentsListModerator = () => {
 
             const appointments: Appointment[] = await response.json();
             setAppointments(appointments);
-            setIsMock(false);
 
         } catch (error) {
             createMock();
@@ -37,8 +34,7 @@ const AppointmentsListModerator = () => {
 
     const createMock = () => {
 
-        setIsMock(true);
-        setAppointments(AppointmentsMock); // Выводить не все моки
+        setAppointments(AppointmentsMock);
 
     }
 
