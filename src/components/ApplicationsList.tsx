@@ -18,6 +18,12 @@ const ApplicationsList = () => {
 
     const [applications, setApplications] = useState<Application[]>([]);
 
+    const [startDate, setStartDate] = useState('');
+
+    const [endDate, setEndDate] = useState('');
+
+    const [selectedStatus, setSelectedStatus] = useState('');
+
     const searchApplications = async () => {
         try {
             const response = await fetch(`http://127.0.0.1:8000/applications/`, { method: "GET", credentials: 'include' });
@@ -37,6 +43,25 @@ const ApplicationsList = () => {
     useEffect(() => {
         searchApplications();
     }, []);
+
+    const filterApplications = (application: Application) => {
+        const formationDate = new Date(application.date_formation);
+
+        if (startDate && formationDate < new Date(startDate)) {
+            return false;
+        }
+
+        if (endDate && formationDate > new Date(endDate)) {
+            return false;
+        }
+
+        if (selectedStatus && application.status !== selectedStatus) {
+            return false;
+        }
+
+        return true;
+
+    };
 
     const handleAcceptClick = async (id: number) => {
         try {
@@ -88,10 +113,28 @@ const ApplicationsList = () => {
           }
     };
 
+    const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedStatus(e.target.value);
+    };
+
     return (
         <div>
             <NavBar/>
             <Breadcrumbs />
+            <div className='filter-container'>
+                <label><b>От: </b></label>
+                <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+                <label><b>До: </b></label>
+                <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+                <label><b>Статус: </b></label>
+                <select value={selectedStatus} onChange={handleStatusChange}>
+                    <option value="">Любой</option>
+                    <option value="Сформирована">Сформирована</option>
+                    <option value="Одобрена">Одобрена</option>
+                    <option value="Отклонена">Отклонена</option>
+                    <option value="Удалена">Удалена</option>
+                </select>
+            </div>
             <table className="table">
             <thead>
                 <tr>
@@ -104,7 +147,7 @@ const ApplicationsList = () => {
                 </tr>
             </thead>
             <tbody>
-                {applications.map((application) => (
+                {applications.filter(filterApplications).map((application) => (
                 <tr key={application.id}>
                     <td>{application.id}</td>
                     <td>{application.username}</td>
