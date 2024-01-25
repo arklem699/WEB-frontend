@@ -77,7 +77,7 @@ const NavBar = () => {
                         </div>
                         </li>
                     <li className="nav-item">
-                        <Link to={"/login"} className="nav-link">
+                        <Link to={"/login"} className="nav-link" onClick={logOut}>
                             Выйти
                         </Link>
                     </li>
