@@ -14,7 +14,7 @@ const App = () => {
     const [selectedAppointment, setSelectedAppointment] = useState(undefined);
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
             <div>
                 <div>
                     <Routes>
