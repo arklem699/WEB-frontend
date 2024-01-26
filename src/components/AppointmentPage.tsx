@@ -5,6 +5,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { AppointmentsMock } from "../Mock";
 import { Appointment } from "./AppointmentCard";
 import Breadcrumbs from "./Breadcrumbs";
+import NavBar from "./NavBar";
 
 const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSelectedAppointment: Dispatch<Appointment | undefined> }> = ({ selectedAppointment, setSelectedAppointment }) => {
 
@@ -51,6 +52,7 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
     return (
         <div>
             <Navigate to={`/appointment/${ selectedAppointment?.id }`} />
+            <NavBar />
             <Link to='/' className="buttonBack">
                 Назад
             </Link>
