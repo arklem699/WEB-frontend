@@ -53,6 +53,7 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
         <div>
             <NavBar />
             <Navigate to={`/appointment/${ selectedAppointment?.id }`} />
+            <NavBar />
             <Link to='/' className="buttonBack">
                 Назад
             </Link>
