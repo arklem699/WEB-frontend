@@ -18,7 +18,7 @@ const AppointmentsList = () => {
 
     const searchAppointments = async () => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/search/?query=${query}`, { method: "GET" });
+            const response = await fetch(`http://127.0.0.1:8000/appointments/?query=${query}`, { method: "GET" });
 
             if (!response.ok) {
                 createMock();
