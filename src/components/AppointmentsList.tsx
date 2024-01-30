@@ -37,7 +37,25 @@ const AppointmentsList = () => {
     const createMock = () => {
 
         setIsMock(true);
-        setAppointments(AppointmentsMock); 
+
+        if (query != '') {
+            let appointments = [];
+            for (const appointment of AppointmentsMock) {
+
+                const formattedDate = new Date(appointment.date)
+                .toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })
+                .replace(/\//g, '.');
+
+                if (formattedDate == query) {
+                    appointments.push(appointment);
+                }
+            }
+
+            setAppointments(appointments); 
+        }
+        else {
+            setAppointments(AppointmentsMock);
+        }
 
     }
 
