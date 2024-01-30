@@ -14,9 +14,9 @@ const Breadcrumbs: FC = () => {
     const topics: { [key: string]: string } = {
         "post": "Создать",
         "update": "Редактировать",
-        "applications": "Заявки",
-        "shopcart": "Корзина",
-        "my-applications": "Мои заявки",
+        "appointments": "Услуги",
+        "application": "Черновик",
+        "my": "Мои заявки",
         "login": "Вход",
         "register": "Регистрация"
     };

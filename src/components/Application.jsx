@@ -1,14 +1,23 @@
-import '../styles/shoppingCart.css';
+import '../styles/Application.css';
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {deleteAppointment, sendApplication, useData} from "../slices/dataSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {GetData} from "../getData";
 import NavBar from './NavBar';
 import Breadcrumbs from './Breadcrumbs';
 
 
-export default function ShoppingCart() {
+export default function Application() {
+
+    const [moderator, setModerator] = useState(false);
+
+    const { user: currentUser } = useSelector((state) => state.auth);
+
+    useEffect(() => {
+        setModerator(currentUser?.is_staff || currentUser?.is_admin);
+    }, [currentUser]);
 
 // Функция для получения значения конкретной куки по ее имени
     function getCookie(name) {
@@ -34,9 +43,15 @@ export default function ShoppingCart() {
         <div>
             <NavBar />
             <Breadcrumbs />
-            <Link to='/shopcart/my-applications' className="my-applications-link">
-                Мои заявки
-            </Link>
+            {moderator ? (
+                <Link to='/applications/all' className="my-applications-link">
+                    Все заявки
+                </Link>
+            ) : (
+                <Link to='/applications/my' className="my-applications-link">
+                    Мои заявки
+                </Link>  
+            )}
             <div className="shopping-cart-container">
                 {data.map((appointment) => (
                     <div key={appointment.id} className="appointment-item">
