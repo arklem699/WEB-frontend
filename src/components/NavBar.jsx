@@ -48,13 +48,6 @@ const NavBar = () => {
                                 { currentUser.username }
                             </Link>
                         </li>
-                        {moderator && (
-                            <li className="nav-item">
-                                <Link to={"/appointments"} className="nav-link">
-                                    Доступное время
-                                </Link>
-                            </li>
-                        )} 
                         <li className="nav-item">
                             <div className="cart-icon">
                                 <Link to={"/application"} className="nav-link">

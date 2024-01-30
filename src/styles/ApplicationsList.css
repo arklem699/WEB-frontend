@@ -1,0 +1,18 @@
+.filter-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.filter-container label {
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+.filter-container input, select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgb(137,206,239);
+}
