@@ -49,38 +49,31 @@ const NavBar = () => {
 
                 {currentUser ? (
                     <div className="navbar-nav ml-auto">
-                    <li className="nav-item">
-                        <Link to={"/"} className="nav-link">
-                            { currentUser.username }
-                        </Link>
-                    </li>
+                        <li className="nav-item">
+                            <Link to={"/"} className="nav-link">
+                                { currentUser.username }
+                            </Link>
+                        </li>
                         {moderator && (
-                            <>
-                                <li className="nav-item">
-                                    <Link to={"/applications"} className="nav-link">
-                                        Заявки
-                                    </Link> 
-                                    </li>
-                                    <li className="nav-item">
-                                    <Link to={"/appointments"} className="nav-link">
-                                        Услуги
-                                    </Link>
-                                </li>
-                            </>
+                            <li className="nav-item">
+                                <Link to={"/appointments"} className="nav-link">
+                                    Доступное время
+                                </Link>
+                            </li>
                         )} 
                         <li className="nav-item">
-                        <div className="cart-icon">
-                            <Link to={"/shopcart"} className="nav-link">
-                                <FaShoppingCart className="cart" />
-                                {data.length > 0 && <span className="cart-badge">{data.length}</span>}
-                            </Link>
-                        </div>
+                            <div className="cart-icon">
+                                <Link to={"/application"} className="nav-link">
+                                    Заявки
+                                    {data.length > 0 && <span className="cart-badge">{data.length}</span>}
+                                </Link> 
+                            </div>
                         </li>
-                    <li className="nav-item">
-                        <Link to={"/login"} className="nav-link" onClick={logOut}>
-                            Выйти
-                        </Link>
-                    </li>
+                        <li className="nav-item">
+                            <Link to={"/login"} className="nav-link" onClick={logOut}>
+                                Выйти
+                            </Link>
+                        </li>
                     </div>
                 ) : (
                     <div className="navbar-nav ml-auto">

@@ -6,12 +6,13 @@ import AppointmentsList from './components/AppointmentsList'
 import AppointmentPage from './components/AppointmentPage';
 import AppointmentAdd from './components/AppointmentAdd';
 import AppointmentUpdate from './components/AppointmentUpdate';
+import Application from './components/Application';
 import ApplicationsList from './components/ApplicationsList';
 import AppointmentsListModerator from './components/AppointmentsListModerator';
 import ApplicationsMy from './components/ApplicationsMy';
 import Login from "./components/login";
 import Register from "./components/register";
-import ShoppingCart from './components/shoppingCart';
+
 
 const App = () => {
     
@@ -29,9 +30,9 @@ const App = () => {
                         <Route path='/appointments' element={ <AppointmentsListModerator/> } />
                         <Route path='/appointments/post' element={ <AppointmentAdd/> } />
                         <Route path='/appointments/update/:id' element={ <AppointmentUpdate /> } />
-                        <Route path='/applications' element={ <ApplicationsList/> } />
-                        <Route path='/shopcart' element={ <ShoppingCart /> } />
-                        <Route path='/shopcart/my-applications' element={ <ApplicationsMy /> } />
+                        <Route path='/applications/all' element={ <ApplicationsList/> } />
+                        <Route path='/application' element={ <Application /> } />
+                        <Route path='/applications/my' element={ <ApplicationsMy /> } />
                     </Routes>
                 </div>
             </div>
