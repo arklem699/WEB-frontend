@@ -1,22 +1,22 @@
 import '../styles/ApplicationsList.css';
 import React from "react";
 import { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
 import NavBar from './NavBar';
 import Breadcrumbs from './Breadcrumbs';
 
 
-export interface Application {
-    id: number;
-    date_creating: string;
-    date_formation: string;
-    date_completion: string;
-    status: string;
-    username: string;
-}
-
 const ApplicationsList = () => {
 
-    const [applications, setApplications] = useState<Application[]>([]);
+    const [moderator, setModerator] = useState(false);
+
+    const { user: currentUser } = useSelector((state) => state.auth);
+
+    useEffect(() => {
+        setModerator(currentUser?.is_staff || currentUser?.is_admin);
+    }, [currentUser]);
+
+    const [applications, setApplications] = useState([]);
 
     const [startDate, setStartDate] = useState('');
 
@@ -32,7 +32,7 @@ const ApplicationsList = () => {
                 console.error(`Ошибка HTTP: ${ response.status }`);
             }
 
-            const applications: Application[] = await response.json();
+            const applications = await response.json();
             setApplications(applications);
 
         } catch (error) {
@@ -44,7 +44,7 @@ const ApplicationsList = () => {
         searchApplications();
     }, []);
 
-    const filterApplications = (application: Application) => {
+    const filterApplications = (application) => {
         const formationDate = new Date(application.date_formation);
 
         if (startDate && formationDate < new Date(startDate)) {
@@ -63,7 +63,7 @@ const ApplicationsList = () => {
 
     };
 
-    const handleAcceptClick = async (id: number) => {
+    const handleAcceptClick = async (id) => {
         try {
             // Отправка запроса на бэкенд при нажатии
             const response = await fetch(`http://127.0.0.1:8000/application/${id}/moderator/put/`, {
@@ -88,7 +88,7 @@ const ApplicationsList = () => {
           }
     };
 
-    const handleRejectClick = async (id: number) => {
+    const handleRejectClick = async (id) => {
         try {
             // Отправка запроса на бэкенд при нажатии
             const response = await fetch(`http://127.0.0.1:8000/application/${id}/moderator/put/`, {
@@ -113,7 +113,7 @@ const ApplicationsList = () => {
           }
     };
 
-    const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleStatusChange = (e) => {
         setSelectedStatus(e.target.value);
     };
 
@@ -142,8 +142,11 @@ const ApplicationsList = () => {
                 <th>Пользователь</th>
                 <th>Дата создания</th>
                 <th>Дата формирования</th>
+                <th>Дата завершения</th>
                 <th>Статус</th>
-                <th>Действия</th>
+                {moderator && (
+                    <th>Действия</th>
+                )}
                 </tr>
             </thead>
             <tbody>
@@ -153,15 +156,18 @@ const ApplicationsList = () => {
                     <td>{application.username}</td>
                     <td>{application.date_creating}</td>
                     <td>{application.date_formation}</td>
+                    <td>{application.date_completion}</td>
                     <td>{application.status}</td>
-                    <td>
-                        {application.status == 'Сформирована' && (
-                        <div>
-                            <button className="accept" onClick={() => handleAcceptClick(application.id)}>Принять</button>
-                            <button className="reject" onClick={() => handleRejectClick(application.id)}>Отклонить</button>
-                        </div>
-                        )}
-                    </td>
+                    {moderator && (
+                        <td>
+                            {application.status == 'Сформирована' && (
+                            <div>
+                                <button className="accept" onClick={() => handleAcceptClick(application.id)}>Принять</button>
+                                <button className="reject" onClick={() => handleRejectClick(application.id)}>Отклонить</button>
+                            </div>
+                            )}
+                        </td>
+                    )}
                 </tr>
                 ))}
             </tbody>

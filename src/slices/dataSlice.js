@@ -48,6 +48,7 @@ export const sendApplication = (id_appl) => async (dispatch) => {
   
     // Отправка запроса на формирование на бэкенд
     await axios.put(`http://127.0.0.1:8000/application/${id_appl}/user/put/`, null, { withCredentials: true });
+    await axios.post(`http://127.0.0.1:9000/was/${id_appl}/`, null, { withCredentials: true });
     dispatch(sendApplAction({ id_appl }));
 }
 
