@@ -49,6 +49,10 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
             .replace(/\//g, '.')
         : '';
 
+    console.log(selectedAppointment?.image);
+    const imageUrl = selectedAppointment?.image.slice(2, -1);
+    const strImageUrl = `data:image/jpeg;base64,${ imageUrl }`;
+
     return (
         <div>
             <NavBar />
@@ -62,6 +66,9 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
                 <b>Информация о записи</b>
             </div>
             <div className="order-container">
+                <div className="image-container">
+                    <img src={ strImageUrl } alt="Изображение врача" />
+                </div>
                 <div className="order-text">
                     <span className="label">Врач:</span> { selectedAppointment?.doctor }
                     <br />
