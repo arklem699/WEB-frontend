@@ -3,6 +3,7 @@ import React from 'react';
 import { Dispatch, useEffect, FC } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { AppointmentsMock } from "../Mock";
+import mockImage from "/src/assets/mock.png";
 import { Appointment } from "./AppointmentCard";
 import Breadcrumbs from "./Breadcrumbs";
 import NavBar from "./NavBar";
@@ -49,7 +50,6 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
             .replace(/\//g, '.')
         : '';
 
-    console.log(selectedAppointment?.image);
     const imageUrl = selectedAppointment?.image.slice(2, -1);
     const strImageUrl = `data:image/jpeg;base64,${ imageUrl }`;
 
@@ -66,7 +66,7 @@ const AppointmentPage: FC<{ selectedAppointment:Appointment | undefined, setSele
             </div>
             <div className="order-container">
                 <div className="image-container">
-                    <img src={ strImageUrl } alt="Изображение врача" />
+                    <img src={ selectedAppointment?.image ? strImageUrl : mockImage } alt="Изображение врача" />
                 </div>
                 <div className="order-text">
                     <span className="label">Врач:</span> { selectedAppointment?.doctor }
