@@ -14,7 +14,7 @@ const Breadcrumbs: FC = () => {
     const topics: { [key: string]: string } = {
         "post": "Создать",
         "update": "Редактировать",
-        "appointments": "Услуги",
+        "appointments": "Доступное время",
         "application": "Черновик",
         "my": "Мои заявки",
         "login": "Вход",
@@ -35,7 +35,7 @@ const Breadcrumbs: FC = () => {
                 <div className={"crumb"} key={crumb}>
                     <FaChevronRight className={"chevron-icon"}/>
                     <Link to={currentLink}>
-                        Услуга №{appointmentNumber}
+                        Доступное время №{appointmentNumber}
                     </Link>
                 </div>
             )
