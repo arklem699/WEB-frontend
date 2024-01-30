@@ -9,7 +9,6 @@ import AppointmentUpdate from './components/AppointmentUpdate';
 import Application from './components/Application';
 import ApplicationsList from './components/ApplicationsList';
 import AppointmentsListModerator from './components/AppointmentsListModerator';
-import ApplicationsMy from './components/ApplicationsMy';
 import Login from "./components/login";
 import Register from "./components/register";
 
@@ -32,7 +31,6 @@ const App = () => {
                         <Route path='/appointments/update/:id' element={ <AppointmentUpdate /> } />
                         <Route path='/applications/all' element={ <ApplicationsList/> } />
                         <Route path='/application' element={ <Application /> } />
-                        <Route path='/applications/my' element={ <ApplicationsMy /> } />
                     </Routes>
                 </div>
             </div>
