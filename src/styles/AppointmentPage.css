@@ -17,12 +17,13 @@
 }  
 
 .order-container {
-  max-width: 300px;
-  margin: 20px auto;
-  background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .order-text {
@@ -36,6 +37,6 @@
 }
 
 .information {
-  padding: 15px;
-  font-size: 26px;
+    text-align: center;
+    font-size: 26px;
 }
