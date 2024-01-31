@@ -58,7 +58,7 @@ export default function Application() {
                         <button
                             className="generate-button"
                             onClick={() => {
-                                dispatch(sendApplication(data[0].id_appl));
+                                dispatch(sendApplication(data));
                             }}
                           >
                             Сформировать
