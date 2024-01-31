@@ -44,12 +44,12 @@ export const deleteAppointment = (id) => async (dispatch) => {
     dispatch(delAppointAction({ id }));
 }
 
-export const sendApplication = (id_appl) => async (dispatch) => {
-  
-    // Отправка запроса на формирование на бэкенд
-    await axios.put(`http://127.0.0.1:8000/application/${id_appl}/user/put/`, null, { withCredentials: true });
-    await axios.post(`http://127.0.0.1:9000/was/${id_appl}/`, null, { withCredentials: true });
-    dispatch(sendApplAction({ id_appl }));
+export const sendApplication = (data) => async (dispatch) => {
+
+    axios.put(`http://127.0.0.1:8000/application/${data[0].id_appl}/user/put/`, null, { withCredentials: true }),
+    axios.post(`http://127.0.0.1:9000/was/`, { data: data }, { headers: { 'Content-Type': 'application/json' }}, { withCredentials: true })
+
+    dispatch(sendApplAction());
 }
 
 export const sendAppointment = (id) => async (dispatch) => {
